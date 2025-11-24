@@ -29,24 +29,24 @@ public class GoogleSelenium {
 		driver = new ChromeDriver();
 		
 		driver.manage().window().maximize();
-		driver.get("https://www.youtube.com/");
+		driver.get("https://dle.rae.es/y");
 	}
 	
 	@Test
 	public void testGoogle() {
-		WebElement serchbox = driver.findElement(By.name("search_query"));
+		WebElement serchbox = driver.findElement(By.name("w"));
 		serchbox.clear();
-		serchbox.sendKeys("semaforo");
+		serchbox.sendKeys("desatar");
 		serchbox.submit();
 		
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1000));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		System.out.println(driver.getTitle());
 		
-		assertEquals("semaforo - YouTube", driver.getTitle());	
+		//WebElement fff = driver.findElement(By.name("ui-label-builder ui-search-breadcrumb__title"));
+		assertEquals("desatar | Definición | Diccionario de la lengua española | RAE - ASALE", driver.getTitle());
+		//assertEquals("Lentes | Mercado Libre", driver.getTitle());
+
 	}
 	
-	@After
-	public void finish(){
-		driver.quit();
-	}
 	
 }
