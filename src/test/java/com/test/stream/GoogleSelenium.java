@@ -42,9 +42,7 @@ public class GoogleSelenium {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		System.out.println(driver.getTitle());
 		
-		//WebElement fff = driver.findElement(By.name("ui-label-builder ui-search-breadcrumb__title"));
 		assertEquals("desatar | Definición | Diccionario de la lengua española | RAE - ASALE", driver.getTitle());
-		//assertEquals("Lentes | Mercado Libre", driver.getTitle());
 
 	}
 	
